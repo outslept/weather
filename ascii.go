@@ -1,7 +1,7 @@
 package main
 
-func initWeatherMap() map[int]weatherDisplay {
-	return map[int]weatherDisplay{
+func weatherIcons() map[int]WeatherIcon {
+	return map[int]WeatherIcon{
 		0: {
 			Description: "Clear sky",
 			ASCII: []string{
@@ -292,15 +292,17 @@ func initWeatherMap() map[int]weatherDisplay {
 				"\033[38;5;21;1m  ‚'‚'\033[38;5;228;5m⚡\033[38;5;21;25m'‚'  \033[0m",
 			},
 		},
-		999: {
-			Description: "Unknown",
-			ASCII: []string{
-				"    .-.      ",
-				"     __)     ",
-				"    (        ",
-				"     `-'     ",
-				"      •      ",
-			},
-		},
+		// 999: {
+		// 	Description: "Unknown",
+		// 	ASCII: []string{
+		// 		"    .-.      ",
+		// 		"     __)     ",
+		// 		"    (        ",
+		// 		"     `-'     ",
+		// 		"      •      ",
+		// 	},
+		// },
 	}
 }
+
+var iconMap = weatherIcons()

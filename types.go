@@ -1,17 +1,17 @@
 package main
 
-type location struct {
+type Location struct {
 	Name      string  `json:"name"`
 	Country   string  `json:"country"`
 	Latitude  float64 `json:"latitude"`
 	Longitude float64 `json:"longitude"`
 }
 
-type geocodeResponse struct {
-	Results []location `json:"results"`
+type GeocodeResponse struct {
+	Results []Location `json:"results"`
 }
 
-type weather struct {
+type Weather struct {
 	Current struct {
 		Temperature   float64 `json:"temperature_2m"`
 		Humidity      int     `json:"relative_humidity_2m"`
@@ -27,13 +27,11 @@ type weather struct {
 		Sunrise []string  `json:"sunrise"`
 		Sunset  []string  `json:"sunset"`
 	} `json:"daily"`
+	Timezone             string `json:"timezone"`
+	TimezoneAbbreviation string `json:"timezone_abbreviation"`
 }
 
-type weatherDisplay struct {
+type WeatherIcon struct {
 	Description string
 	ASCII       []string
-}
-
-type displayManager struct {
-	weatherMap map[int]weatherDisplay
 }

@@ -13,20 +13,19 @@ func main() {
 		return
 	}
 
-	cityName := strings.Join(os.Args[1:], " ")
+	city := strings.Join(os.Args[1:], " ")
 
-	location, err := getLocation(cityName)
+	loc, err := getLocation(city)
 	if err != nil {
 		fmt.Printf("%sError:%s %v\n", red, reset, err)
 		return
 	}
 
-	weather, err := getWeather(location.Latitude, location.Longitude)
+	w, err := getWeather(loc.Latitude, loc.Longitude)
 	if err != nil {
 		fmt.Printf("%sError:%s %v\n", red, reset, err)
 		return
 	}
 
-	display := newWeatherDisplay()
-	display.show(weather, location)
+	showWeather(w, loc)
 }
